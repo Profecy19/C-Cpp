@@ -1,3 +1,4 @@
 .vscode
+/t.c
 # Ignore .exe files in all directories
 **/*.exe
