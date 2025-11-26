@@ -1,4 +1,5 @@
 .vscode
-/t.c
+**/t.c
 # Ignore .exe files in all directories
 **/*.exe
+/.gitignore
