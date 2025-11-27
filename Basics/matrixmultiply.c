@@ -1,26 +1,55 @@
 #include <stdio.h>
-int main(){
-    int mata[3][3]={{3,2,1},{1,2,4},{8,9,10}};
-    int matb[3][3]={{1,6,5},{1,2,4},{4,2,6}};
-    int ele=0,sumele=0,sum[3][3];
-    for (int z=0;z<3;z++){
-        ele=0;
-        int ele1,ele2;
-        for(int y=0;y<3;y++){
-            sumele=0;
-            for (int k=0;k<3;k++){
-                ele1=mata[z][k];
-                ele2=matb[k][y];
-                sumele+=ele1*ele2;
-                }
-            sum[z][y]=sumele;
+#include <stdlib.h> 
+
+int main() {
+    int m1r, m1c, m2r, m2c;
+    printf("Enter number of Rows of 1st Matrix (A): ");
+    if (scanf("%d", &m1r) != 1) return 1;
+    printf("Enter number of Columns of 1st Matrix (A): ");
+    if (scanf("%d", &m1c) != 1) return 1;
+    printf("Enter number of Rows of 2nd Matrix (B): ");
+    if (scanf("%d", &m2r) != 1) return 1;
+    printf("Enter number of Columns of 2nd Matrix (B): ");
+    if (scanf("%d", &m2c) != 1) return 1;
+    int mata[m1r][m1c];
+    int matb[m2r][m2c];
+    int sum[m1r][m2c];
+    if (m1c != m2r) {
+        printf("\nError: Matrix multiplication is not possible.\n");
+        printf("Columns of Matrix A (%d) must equal Rows of Matrix B (%d).\n", m1c, m2r);
+        exit(1); 
+    }
+    printf("\n-- Enter elements for Matrix A (%dx%d) --\n", m1r, m1c);
+    
+    for (int i = 0; i < m1r; i++) {
+        for (int j = 0; j < m1c; j++) {
+            printf("Enter A[%d][%d]: ", i + 1, j + 1);
+            scanf("%d", &mata[i][j]);
         }
     }
-    for(int a=0;a<3;a++){
+    printf("\n-- Enter elements for Matrix B (%dx%d) --\n", m2r, m2c);
+    
+    for (int i = 0; i < m2r; i++) {
+        for (int j = 0; j < m2c; j++) {
+            printf("Enter B[%d][%d]: ", i + 1, j + 1);
+            scanf("%d", &matb[i][j]);
+        }
+    }
+    for (int i = 0; i < m1r; i++) {
+        for (int j = 0; j < m2c; j++) {
+            sum[i][j] = 0;
+            for (int k = 0; k < m1c; k++) { 
+                sum[i][j] += mata[i][k] * matb[k][j];
+            }
+        }
+    }
+    printf("\n--- Result Matrix C (%dx%d) ---\n", m1r, m2c);
+    for (int a = 0; a < m1r; a++) {
         printf("|");
-        for (int b=0;b<3;b++){
-            printf("\t%d\t",sum[a][b]);
+        for (int b = 0; b < m2c; b++) {
+            printf("\t%d\t", sum[a][b]);
         }
         printf("|\n");
     }
+    return 0;
 }
