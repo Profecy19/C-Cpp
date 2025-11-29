@@ -22,7 +22,7 @@ int main(){
     //arr[0]=q/2;
     printf("\n");
     for(int d=0;d<b;d++){
-        printf("\t%d\t",arr[d]);
+        printf("%d",arr[d]);
     }
     //printf("%d",b);
 }
