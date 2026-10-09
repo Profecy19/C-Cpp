@@ -1,3 +1,12 @@
+/*
+
+5
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+*/
 #include <iostream>
 using namespace std;
 int main(){

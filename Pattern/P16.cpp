@@ -1,3 +1,12 @@
+/*
+
+5
+A
+BB
+CCC
+DDDD
+EEEEE
+*/
 #include <iostream>
 using namespace std;
 int main(){
