@@ -1,3 +1,15 @@
+/*
+Reverse star triangle pattern
+
+* * * * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+
+*/
+
 #include <iostream>
 using namespace std;
 int main(){
